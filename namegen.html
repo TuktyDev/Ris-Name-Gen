@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    
+    <style>   
+        * {
+          font-family: "Roboto", sans-serif;
+        }
+        h1, h2, div {   
+            color: black;
+        }
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+            background-color: #b46ded;
+            padding: 0;
+            margin: 0;
+            width: 100vw;
+            text-align: center;
+        }
+        button {
+            margin-bottom: 1vh;
+        }
+        #name {
+            font-size: 5vh;
+        }
+        </style>
+        <script>
+        const upper = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+        const lower = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+        const vowels = ["a", "e", "i", "o", "u", "y"]
+        function gen() {
+            var namefill = document.getElementById("name");
+            first = upper[Math.floor(Math.random() * upper.length)]
+            vowelcheck = false
+            vowels.forEach(element => {
+                if (vowelcheck == false){
+                    if (element == first.toLowerCase()) {
+                        vowelcheck = true
+                    }
+                }
+            });
+            if (vowelcheck) {
+                middle = lower[Math.floor(Math.random() * lower.length)]
+            } else{middle = vowels[Math.floor(Math.random() * vowels.length)]}
+            console.log(vowelcheck)
+
+            end = lower[Math.floor(Math.random() * lower.length)]
+
+            if (namefill.innerHTML == "") {
+                namefill.innerHTML = first+middle+end
+            } else {namefill.innerHTML = first+middle+end+"<br>" + namefill.innerHTML}
+        }
+        </script>
+<head>
+<title>Ris Name Generator</title>
+</head>
+<body><h1>Ris Name Generator</h1><h2>Easy 3 Letter Names</h2>
+<button onclick="gen()" class="btn btn-light ">Generate</button>
+<div id="name"></div>
+</body>
+</html>
